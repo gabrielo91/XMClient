@@ -7,7 +7,7 @@ package xmclient.controller.managerlecturas;
 
 /**
  *
- * @author USUARIO
+ * @author Gabriel Ortega
  */
 public interface LecturasTransformerInterface {
     

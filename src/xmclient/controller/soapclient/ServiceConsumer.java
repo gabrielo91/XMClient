@@ -7,7 +7,7 @@ package xmclient.controller.soapclient;
 
 /**
  *
- * @author USUARIO
+ * @author Gabriel Ortega
  */
 public class ServiceConsumer implements ServiceConsumerInterface{
     

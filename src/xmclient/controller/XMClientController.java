@@ -7,7 +7,7 @@ package xmclient.controller;
 
 /**
  *
- * @author USUARIO
+ * @author Gabriel Ortega
  */
 public class XMClientController {
 

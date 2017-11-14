@@ -7,7 +7,7 @@ package xmclient.entities;
 
 /**
  *
- * @author USUARIO
+ * @author Gabriel Ortega
  */
 public class SOAPServicesLecturasEntity {
     
