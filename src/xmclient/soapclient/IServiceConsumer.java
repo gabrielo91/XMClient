@@ -6,12 +6,13 @@
 package xmclient.soapclient;
 
 import java.util.ArrayList;
-import xmclient.entities.SOAPServicesLecturasEntity;
+import xmclient.entities.DTOLecturas;
+import xmclient.soapentities.ProcessRequestResult;
 
 /**
  *
  * @author Gabriel Ortega
  */
 public interface IServiceConsumer {
-    String reportReadings(ArrayList<SOAPServicesLecturasEntity> lecturas) throws Exception;
+    ProcessRequestResult reportarLecturas(ArrayList<DTOLecturas> lecturas) throws Exception;
 }

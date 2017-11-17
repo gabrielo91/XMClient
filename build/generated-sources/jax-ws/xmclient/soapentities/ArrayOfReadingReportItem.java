@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class ArrayOfReadingReportItem {
 
     @XmlElement(name = "ReadingReportItem", nillable = true)
-    protected List<ReadingReportItem> readingReportItem;
+    private List<ReadingReportItem> readingReportItem;
 
     /**
      * Gets the value of the readingReportItem property.
@@ -64,6 +64,10 @@ public class ArrayOfReadingReportItem {
             readingReportItem = new ArrayList<ReadingReportItem>();
         }
         return this.readingReportItem;
+    }
+
+    public void setReadingReportItem(List<ReadingReportItem> readingReportItem) {
+        this.readingReportItem = readingReportItem;
     }
 
 }
