@@ -23,28 +23,20 @@ public class PreferencesManager implements IPreferencesManager{
     public final static String CREDENTIALS = "credentials";
     public final static String SERVICE = "service";
     public final static String SERVICE_ENDPOINT = "service-endpoint";
-            
-    JSONParser parser;
-    Object object;
+
     private String username;
     private String password;
     private String serviceEndPoint;
    
-    
     public PreferencesManager() throws FileNotFoundException, IOException, ParseException {
-        parser = new JSONParser();
-        object = parser.parse(new FileReader(PATH_CONFIGURATION_FILE));
+        JSONParser parser = new JSONParser();
+        Object object = parser.parse(new FileReader(PATH_CONFIGURATION_FILE));
         JSONObject configData = (JSONObject) object;
         JSONObject credentials = (JSONObject) configData.get(CREDENTIALS);
         JSONObject serviceInfo = (JSONObject) configData.get(SERVICE);
-        
         username = (String) credentials.get(USERNAME);
         password = (String) credentials.get(PASSWORD);
         serviceEndPoint = (String) serviceInfo.get(SERVICE_ENDPOINT);
-        
-        System.out.println("username: "+username);
-        System.out.println("password: "+password);
-        System.out.println("serviceEndPoint: "+serviceEndPoint);
     }
     
     @Override
