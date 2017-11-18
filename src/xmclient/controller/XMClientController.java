@@ -5,11 +5,9 @@
  */
 package xmclient.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.json.simple.parser.ParseException;
 import xmclient.soapclient.IServiceConsumer;
 import xmclient.soapclient.ServiceConsumer;
 import xmclient.entities.DTOLecturas;
@@ -36,7 +34,6 @@ public class XMClientController {
             System.out.println("Finishing");
             
         } catch (Exception ex) {
-            ex.printStackTrace();
             Logger.getLogger(XMClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

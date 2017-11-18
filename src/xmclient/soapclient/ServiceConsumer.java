@@ -6,11 +6,13 @@
 package xmclient.soapclient;
 
 import java.util.ArrayList;
+import javax.xml.bind.JAXBElement;
 import javax.xml.datatype.DatatypeConfigurationException;
 import xmclient.entities.DTOLecturas;
 import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.soapentities.ArrayOfReadingReportItem;
 import xmclient.soapentities.IReadingReportService;
+import xmclient.soapentities.ObjectFactory;
 import xmclient.soapentities.ProcessRequestResult;
 import xmclient.soapentities.ReadingReportItem;
 import xmclient.soapentities.ReadingReportService;
@@ -30,7 +32,7 @@ public class ServiceConsumer implements IServiceConsumer{
      * @throws DatatypeConfigurationException 
      */
     @Override
-    public ProcessRequestResult reportarLecturas(ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws DatatypeConfigurationException {
+    public ProcessRequestResult reportarLecturas(ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws DatatypeConfigurationException, Exception {
         
         UserData userData = getUserCredentials(preferences);
         ArrayOfReadingReportItem lecturasSoap = new ArrayOfReadingReportItem();  
@@ -56,7 +58,8 @@ public class ServiceConsumer implements IServiceConsumer{
     private static ProcessRequestResult reportReadingsToService(ArrayOfReadingReportItem readings, UserData userData) {
         ReadingReportService service = new ReadingReportService();
         IReadingReportService port = service.getBasicHttpsBindingIReadingReportService();
-        return port.reportReadings(readings, userData);
+        ProcessRequestResult result = port.reportReadings(readings, userData);
+        return result;
     }
     
     /**
@@ -64,7 +67,13 @@ public class ServiceConsumer implements IServiceConsumer{
      * @param preferences
      * @return 
      */
-    private UserData getUserCredentials(IPreferencesManager preferences) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private UserData getUserCredentials(IPreferencesManager preferences) throws Exception {
+        UserData userData = new UserData();
+        ObjectFactory factory = new ObjectFactory();
+        JAXBElement<String> userPassword = factory.createUserDataPassword(preferences.getPasword());
+        JAXBElement<String> username = factory.createUserDataPassword(preferences.getUsername());                
+        userData.setPassword(userPassword);
+        userData.setUserName(username);
+        return userData;
     }
 }

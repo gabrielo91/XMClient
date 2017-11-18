@@ -5,6 +5,38 @@
     <client name="ReadingReportService">
       <wsdl-url>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl</wsdl-url>
       <local-wsdl-file>readingreportserviceprb.xm.com.co/ReadingReportService.svc.wsdl</local-wsdl-file>
+      <package-name>org.tempuri</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="ReadingReportService_1">
+      <wsdl-url>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl</wsdl-url>
+      <local-wsdl-file>readingreportserviceprb.xm.com.co/ReadingReportService.svc.wsdl</local-wsdl-file>
       <package-name forceReplace="true">xmclient.soapentities</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
