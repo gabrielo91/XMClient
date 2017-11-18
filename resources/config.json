@@ -3,10 +3,10 @@
     "version": "1.0.0",
 
     "credentials":{
-        "username":"username",
-        "password":"password"
+        "username":"username_value",
+        "password":"password_value"
     },
     "service":{
-        "service-endpoint":"endpoint"
+        "service-endpoint":"endpoint_value"
     }
 }

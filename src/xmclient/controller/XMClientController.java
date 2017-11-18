@@ -5,12 +5,15 @@
  */
 package xmclient.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.simple.parser.ParseException;
 import xmclient.soapclient.IServiceConsumer;
 import xmclient.soapclient.ServiceConsumer;
 import xmclient.entities.DTOLecturas;
+import xmclient.preferencesmanager.PreferencesManager;
 import xmclient.soapentities.ProcessRequestResult;
 
 /**
@@ -22,10 +25,18 @@ public class XMClientController {
     /**
      * @param args the command line arguments
      */
-    public void main(String[] args) {
+    public static void main(String[] args) {
 
         System.out.println("Starting");
 
+        try {
+            PreferencesManager pref = new PreferencesManager();
+        } catch (IOException ex) {
+            Logger.getLogger(XMClientController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(XMClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         //Replace this list with the array of data to send
         ArrayList<DTOLecturas>  listaLecturas = new ArrayList();
         
@@ -34,11 +45,11 @@ public class XMClientController {
       
         try {
 
-            ProcessRequestResult respuesta = enviarLecturas(serviceConsumer, listaLecturas);
-            boolean resultadoOperacion = procesarRespuesta(respuesta);
+            //ProcessRequestResult respuesta = enviarLecturas(serviceConsumer, listaLecturas);
+            //boolean resultadoOperacion = procesarRespuesta(respuesta);
 
-            System.out.println("Operation result message: " + respuesta.getErrorMessage());
-            System.out.println("Finishing");
+            //System.out.println("Operation result message: " + respuesta.getErrorMessage());
+            //System.out.println("Finishing");
         } catch (Exception ex) {
             Logger.getLogger(XMClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
