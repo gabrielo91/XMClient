@@ -23,6 +23,10 @@ public class DTOLecturas {
         this.fechaInicio = fechaInicio;
     }
 
+    public DTOLecturas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public List<Double> getLecturas() {
         return lecturas;
     }

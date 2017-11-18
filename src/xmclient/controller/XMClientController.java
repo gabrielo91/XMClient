@@ -27,7 +27,7 @@ public class XMClientController {
         System.out.println("Starting");
 
         //Replace this list with the array of data to send
-        DTOLecturas listaLecturas = new DTOLecturas();
+        ArrayList<DTOLecturas>  listaLecturas = new ArrayList();
         
         //Objects to inject
         IServiceConsumer serviceConsumer = new ServiceConsumer();
@@ -45,7 +45,7 @@ public class XMClientController {
     }
 
 
-    public ProcessRequestResult enviarLecturas(IServiceConsumer sender, DTOLecturas lecturas) throws Exception {
+    public ProcessRequestResult enviarLecturas(IServiceConsumer sender, ArrayList<DTOLecturas> lecturas) throws Exception {
         ProcessRequestResult result = sender.reportarLecturas(lecturas);
         return result;
     }

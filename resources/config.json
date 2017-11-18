@@ -1,0 +1,12 @@
+{
+    "author":"Gabriel Ortega Rosero",
+    "version": "1.0.0",
+
+    "credentials":{
+        "username":"username",
+        "password":"password"
+    },
+    "service":{
+        "service-endpoint":"endpoint"
+    }
+}

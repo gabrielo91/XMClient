@@ -18,8 +18,8 @@
     </target>
     <target name="wsimport-client-ReadingReportService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/ReadingReportService"/>
-        <property name="wsdl-ReadingReportService" location="xml-resources/web-service-references/ReadingReportService/wsdl/readingreportserviceprb.xm.com.co/ReadingReportService.svc.singlewsdl.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ReadingReportService" destdir="${build.generated.dir}/jax-wsCache/ReadingReportService" wsdl="${wsdl-ReadingReportService}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?singleWsdl" xnocompile="true" xendorsed="true" package="xmclient.soapentities">
+        <property name="wsdl-ReadingReportService" location="xml-resources/web-service-references/ReadingReportService/wsdl/readingreportserviceprb.xm.com.co/ReadingReportService.svc.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ReadingReportService" destdir="${build.generated.dir}/jax-wsCache/ReadingReportService" wsdl="${wsdl-ReadingReportService}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl" xnocompile="true" xendorsed="true" package="xmclient.soapentities">
             <depends file="${wsdl-ReadingReportService}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/ReadingReportService"/>
         </wsimport>

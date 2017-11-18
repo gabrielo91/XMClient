@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import javax.xml.datatype.DatatypeConfigurationException;
 import xmclient.entities.DTOLecturas;
 import xmclient.soapentities.ArrayOfReadingReportItem;
+import xmclient.soapentities.IReadingReportService;
 import xmclient.soapentities.ProcessRequestResult;
 import xmclient.soapentities.ReadingReportItem;
+import xmclient.soapentities.ReadingReportService;
 import xmclient.soapentities.UserData;
 
 /**
@@ -31,20 +33,19 @@ public class ServiceConsumer implements IServiceConsumer{
             lecturasPorFrontera = LecturasTransformer.crearPaqueteLecturas(lecturasPorMedidor);
             paqueteLecturas.add(lecturasPorFrontera);
         }
-        
-        lecturasSoap.setReadingReportItem(paqueteLecturas);
+           
+        lecturasSoap.getReadingReportItem().addAll(paqueteLecturas);
         ProcessRequestResult processRequestResult = reportReadingsToService(lecturasSoap, userData);
         return processRequestResult;
     }    
 
     private static ProcessRequestResult reportReadingsToService(ArrayOfReadingReportItem readings, UserData userData) {
-        xmclient.soapentities.ReadingReportService service = new xmclient.soapentities.ReadingReportService();
-        xmclient.soapentities.IReadingReportService port = service.getBasicHttpsBindingIReadingReportService();
+        ReadingReportService service = new ReadingReportService();
+        IReadingReportService port = service.getBasicHttpsBindingIReadingReportService();
         return port.reportReadings(readings, userData);
     }
 
     private UserData getUserCredentials() {
-        //read from file
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

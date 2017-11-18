@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class ArrayOfdouble {
 
     @XmlElement(name = "double", type = Double.class)
-    private List<Double> _double;
+    protected List<Double> _double;
 
     /**
      * Gets the value of the double property.
@@ -65,11 +65,5 @@ public class ArrayOfdouble {
         }
         return this._double;
     }
-
-    public void setDouble(List<Double> _double) {
-        this._double = _double;
-    }
-    
-    
 
 }

@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="ReadingReportService">
-      <wsdl-url>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?singleWsdl</wsdl-url>
-      <local-wsdl-file>readingreportserviceprb.xm.com.co/ReadingReportService.svc.singlewsdl.wsdl</local-wsdl-file>
+      <wsdl-url>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl</wsdl-url>
+      <local-wsdl-file>readingreportserviceprb.xm.com.co/ReadingReportService.svc.wsdl</local-wsdl-file>
       <package-name forceReplace="true">xmclient.soapentities</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?singleWsdl</wsimport-option-value>
+          <wsimport-option-value>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

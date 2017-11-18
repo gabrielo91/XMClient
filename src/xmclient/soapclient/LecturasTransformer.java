@@ -20,7 +20,11 @@ import xmclient.soapentities.ReadingReportItem;
  * @author Gabriel Ortega
  */
 public class LecturasTransformer {
+    
+    public static int READING_COUNT = 24;
+    
     public static ReadingReportItem crearPaqueteLecturas(DTOLecturas paqueteLecturas) throws DatatypeConfigurationException {
+        
         ReadingReportItem lecturas0PorFrontera = new ReadingReportItem();
         ObjectFactory factory = new ObjectFactory();
         JAXBElement<String> borderCode = factory.createReadingReportItemBorderCode(paqueteLecturas.getCodigoFrontera());
@@ -30,15 +34,14 @@ public class LecturasTransformer {
         XMLGregorianCalendar startDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(xmlFechaInicio);
         
         ArrayOfdouble arrayLecturas = new ArrayOfdouble();
-        arrayLecturas.setDouble(paqueteLecturas.getLecturas());
-                
+        arrayLecturas.getDouble().addAll(paqueteLecturas.getLecturas());                
         JAXBElement<ArrayOfdouble> readings = factory.createArrayOfdouble(arrayLecturas);
+        
         lecturas0PorFrontera.setBorderCode(borderCode);
-        lecturas0PorFrontera.setReadingCount(Integer.MIN_VALUE);
+        lecturas0PorFrontera.setReadingCount(READING_COUNT);
         lecturas0PorFrontera.setStartDate(startDate);
         lecturas0PorFrontera.setReadings(readings);
        
-        //leer constantes y valores de archivoxml
         return lecturas0PorFrontera;
     }
 }
