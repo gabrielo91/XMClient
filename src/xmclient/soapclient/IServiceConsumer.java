@@ -7,6 +7,7 @@ package xmclient.soapclient;
 
 import java.util.ArrayList;
 import xmclient.entities.DTOLecturas;
+import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.soapentities.ProcessRequestResult;
 
 /**
@@ -14,5 +15,12 @@ import xmclient.soapentities.ProcessRequestResult;
  * @author Gabriel Ortega
  */
 public interface IServiceConsumer {
-    ProcessRequestResult reportarLecturas(ArrayList<DTOLecturas> lecturas) throws Exception;
+    /**
+     * Permite enviar el reporte de lecturas al servicio soap establecido en las preferencias
+     * @param lecturas
+     * @param preferences: preferencias con los datos requeridos para consumir el servicio
+     * @return
+     * @throws Exception 
+     */
+    ProcessRequestResult reportarLecturas(ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception;
 }

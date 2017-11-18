@@ -12,7 +12,7 @@ import  org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * Implementación de la interfaz IPreferencesManager para la carga de preferncias y credenciales
  * @author Gabriel Ortega
  */
 public class PreferencesManager implements IPreferencesManager{

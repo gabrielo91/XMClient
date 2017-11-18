@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
+ * Contendor de lecturas y parametros por fronetera (medidor)
  * @author Gabriel Ortega
  */
 public class DTOLecturas {

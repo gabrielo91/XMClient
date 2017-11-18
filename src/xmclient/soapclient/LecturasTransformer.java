@@ -16,13 +16,19 @@ import xmclient.soapentities.ObjectFactory;
 import xmclient.soapentities.ReadingReportItem;
 
 /**
- *
+ * Clase de utilidad para la transformación de objetos del proyecto a objetos del propios del servicio SOAP
  * @author Gabriel Ortega
  */
 public class LecturasTransformer {
     
     public static int READING_COUNT = 24;
     
+    /**
+     * Permite convertir las lecturas empaquetadas en los DTO, en entidades propias del servicio SOAP a consumir
+     * @param paqueteLecturas
+     * @return
+     * @throws DatatypeConfigurationException 
+     */
     public static ReadingReportItem crearPaqueteLecturas(DTOLecturas paqueteLecturas) throws DatatypeConfigurationException {
         
         ReadingReportItem lecturas0PorFrontera = new ReadingReportItem();

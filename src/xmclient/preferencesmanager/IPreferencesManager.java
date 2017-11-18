@@ -6,7 +6,7 @@
 package xmclient.preferencesmanager;
 
 /**
- *
+ * Interfaz que define la forma de obtener credenciales para el uso del servicio.
  * @author Gabriel Ortega
  */
 public interface IPreferencesManager {

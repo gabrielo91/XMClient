@@ -13,6 +13,7 @@ import org.json.simple.parser.ParseException;
 import xmclient.soapclient.IServiceConsumer;
 import xmclient.soapclient.ServiceConsumer;
 import xmclient.entities.DTOLecturas;
+import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.preferencesmanager.PreferencesManager;
 import xmclient.soapentities.ProcessRequestResult;
 
@@ -27,37 +28,46 @@ public class XMClientController {
      */
     public static void main(String[] args) {
 
-        System.out.println("Starting");
-
         try {
-            PreferencesManager pref = new PreferencesManager();
-        } catch (IOException ex) {
-            Logger.getLogger(XMClientController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(XMClientController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        //Replace this list with the array of data to send
-        ArrayList<DTOLecturas>  listaLecturas = new ArrayList();
-        
-        //Objects to inject
-        IServiceConsumer serviceConsumer = new ServiceConsumer();
-      
-        try {
-
-            //ProcessRequestResult respuesta = enviarLecturas(serviceConsumer, listaLecturas);
-            //boolean resultadoOperacion = procesarRespuesta(respuesta);
-
-            //System.out.println("Operation result message: " + respuesta.getErrorMessage());
-            //System.out.println("Finishing");
+            
+            System.out.println("Starting..");
+            XMClientController xMClientController = new XMClientController();
+            xMClientController.enviarLecturas();            
+            System.out.println("Finishing");
+            
         } catch (Exception ex) {
+            ex.printStackTrace();
             Logger.getLogger(XMClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    /**
+     * Método para el envio de lecturas al servicio de XM
+     * @throws Exception 
+     */
+    public void enviarLecturas() throws Exception{
+       
+            //Replace this list with the array of data to send  ***********
+            ArrayList<DTOLecturas>  listaLecturas = new ArrayList();
+            //**************************************************************
+            
+            //Objects to inject
+            IServiceConsumer serviceConsumer = new ServiceConsumer();
+            IPreferencesManager preferencesManager = new PreferencesManager();
 
-
-    public ProcessRequestResult enviarLecturas(IServiceConsumer sender, ArrayList<DTOLecturas> lecturas) throws Exception {
-        ProcessRequestResult result = sender.reportarLecturas(lecturas);
+            ProcessRequestResult respuesta = enviarLecturas(serviceConsumer, listaLecturas, preferencesManager);
+            boolean resultadoOperacion = procesarRespuesta(respuesta);
+            
+            if(resultadoOperacion){
+                System.out.println("Succes Operation");
+            } else {
+                System.out.println("Operation result message: " + respuesta.getErrorMessage());     
+            }                     
+    }
+    
+    
+    public ProcessRequestResult enviarLecturas(IServiceConsumer sender, ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception {
+        ProcessRequestResult result = sender.reportarLecturas(lecturas, preferences);
         return result;
     }
 
