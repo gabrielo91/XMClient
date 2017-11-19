@@ -22,7 +22,7 @@ public class XMClientController {
     /**
      * Método para el envio de lecturas al servicio de XM
      * @param listaLecturas
-     * @return ProcessRequestResult
+     * @return Retorna un objeto del tipo ProcessRequestResult con toda la información de la operación realizada
      * @throws Exception 
      */
     public ProcessRequestResult enviarLecturas(ArrayList<DTOLecturas> listaLecturas) throws Exception {
@@ -46,7 +46,7 @@ public class XMClientController {
         System.out.println("Finished");
         return respuesta;
     }
-
+    
     private ProcessRequestResult enviarLecturas(IServiceConsumer sender, ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception {
         ProcessRequestResult result = sender.reportarLecturas(lecturas, preferences);
         return result;
