@@ -7,6 +7,6 @@
         "password":"password_value"
     },
     "service":{
-        "service-endpoint":"endpoint_value"
+        "service-endpoint":"https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl"
     }
 }
