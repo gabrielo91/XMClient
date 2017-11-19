@@ -53,7 +53,7 @@ public class ServiceConsumer implements IServiceConsumer{
      * Permite consumir el servicio reportReadings
      * @param readings
      * @param userData
-     * @return 
+     * @return ProcessRequestResult
      */
     private static ProcessRequestResult reportReadingsToService(ArrayOfReadingReportItem readings, UserData userData) {
         ReadingReportService service = new ReadingReportService();
@@ -65,7 +65,7 @@ public class ServiceConsumer implements IServiceConsumer{
     /**
      * Permite fijar las cabeceras de autenticación y demas parámetros de configuración para el consumodel servcio.
      * @param preferences
-     * @return 
+     * @return UserData
      */
     private UserData getUserCredentials(IPreferencesManager preferences) throws Exception {
         UserData userData = new UserData();

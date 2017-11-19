@@ -26,7 +26,7 @@ public class LecturasTransformer {
     /**
      * Permite convertir las lecturas empaquetadas en los DTO, en entidades propias del servicio SOAP a consumir
      * @param paqueteLecturas
-     * @return
+     * @return ReadingReportItem
      * @throws DatatypeConfigurationException 
      */
     public static ReadingReportItem crearPaqueteLecturas(DTOLecturas paqueteLecturas) throws DatatypeConfigurationException {

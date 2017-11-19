@@ -6,8 +6,6 @@
 package xmclient.controller;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import xmclient.soapclient.IServiceConsumer;
 import xmclient.soapclient.ServiceConsumer;
 import xmclient.entities.DTOLecturas;
@@ -23,7 +21,9 @@ public class XMClientController {
 
     /**
      * Método para el envio de lecturas al servicio de XM
-     * @throws Exception
+     * @param listaLecturas
+     * @return ProcessRequestResult
+     * @throws Exception 
      */
     public ProcessRequestResult enviarLecturas(ArrayList<DTOLecturas> listaLecturas) throws Exception {
 
@@ -55,7 +55,7 @@ public class XMClientController {
     /**
      * Devuelve un booleano basado en al respuesta del envìo de lecturas, indicando si la operación fue exitosa o no.
      * @param resultadoOperacion
-     * @return 
+     * @return isProcessAccepted
      */
     public boolean procesarRespuesta(ProcessRequestResult resultadoOperacion) {
         return resultadoOperacion.isProcessAccepted();
