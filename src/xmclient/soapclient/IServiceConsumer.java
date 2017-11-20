@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import xmclient.entities.DTOLecturas;
 import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.soapentities.ProcessRequestResult;
+import xmclient.soapentities.ReportReadingProcessResult;
 
 /**
  *
@@ -22,5 +23,15 @@ public interface IServiceConsumer {
      * @return
      * @throws Exception 
      */
-    ProcessRequestResult reportarLecturas(ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception;
+    ProcessRequestResult reportReadings(ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception;
+    
+    /**
+     * Retorna un objeto con la informaciòn del estado de envio por cada una de las fronteras asi como tambien
+     * el estado del proceso en su totalidad.
+     * @param preferences
+     * @param processId
+     * @return
+     * @throws Exception 
+     */
+    ReportReadingProcessResult getProcessStatus (IPreferencesManager preferences, String processId)throws Exception;
 }

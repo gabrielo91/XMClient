@@ -11,7 +11,11 @@ import xmclient.soapclient.ServiceConsumer;
 import xmclient.entities.DTOLecturas;
 import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.preferencesmanager.PreferencesManager;
+import xmclient.soapentities.IReadingReportService;
 import xmclient.soapentities.ProcessRequestResult;
+import xmclient.soapentities.ReadingReportService;
+import xmclient.soapentities.ReportReadingProcessResult;
+import xmclient.soapentities.UserData;
 
 /**
  *
@@ -29,15 +33,20 @@ public class XMClientController {
 
         System.out.println("Starting..");
         
+        String processId;
+        
         //Objects to inject
         IServiceConsumer serviceConsumer = new ServiceConsumer();
         IPreferencesManager preferencesManager = new PreferencesManager();
 
-        ProcessRequestResult respuesta = enviarLecturas(serviceConsumer, listaLecturas, preferencesManager);
+        ProcessRequestResult respuesta = reportReadings(serviceConsumer, listaLecturas, preferencesManager);
         boolean resultadoOperacion = procesarRespuesta(respuesta);
 
         if (resultadoOperacion) {
             System.out.println("Succes Operation");
+            processId = respuesta.getProcessId();
+            System.out.println("Process ID:" + processId);
+           
         } else {
             System.out.println("Error");
             System.out.println("Operation result message: " + respuesta.getErrorMessage().getValue());
@@ -47,8 +56,8 @@ public class XMClientController {
         return respuesta;
     }
     
-    private ProcessRequestResult enviarLecturas(IServiceConsumer sender, ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception {
-        ProcessRequestResult result = sender.reportarLecturas(lecturas, preferences);
+    private ProcessRequestResult reportReadings(IServiceConsumer serviceConsumer, ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception {
+        ProcessRequestResult result = serviceConsumer.reportReadings(lecturas, preferences);
         return result;
     }
 
@@ -60,5 +69,19 @@ public class XMClientController {
     public boolean procesarRespuesta(ProcessRequestResult resultadoOperacion) {
         return resultadoOperacion.isProcessAccepted();
     }
-
+    
+    /**
+     * Método para conocer el estado del proceso, asi como el estado del envio de datos por cada una de las fronteras
+     * @param serviceConsumer
+     * @param processId
+     * @return
+     * @throws Exception 
+     */
+    private static ReportReadingProcessResult getProcessStatus(IServiceConsumer serviceConsumer, IPreferencesManager preferences, String processId) throws Exception {
+        ReportReadingProcessResult result = serviceConsumer.getProcessStatus(preferences, processId);
+        return result;
+    }
+    
+    
+    
 }

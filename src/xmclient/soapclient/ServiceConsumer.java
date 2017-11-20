@@ -16,6 +16,7 @@ import xmclient.soapentities.ObjectFactory;
 import xmclient.soapentities.ProcessRequestResult;
 import xmclient.soapentities.ReadingReportItem;
 import xmclient.soapentities.ReadingReportService;
+import xmclient.soapentities.ReportReadingProcessResult;
 import xmclient.soapentities.UserData;
 
 /**
@@ -32,7 +33,7 @@ public class ServiceConsumer implements IServiceConsumer{
      * @throws DatatypeConfigurationException 
      */
     @Override
-    public ProcessRequestResult reportarLecturas(ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws DatatypeConfigurationException, Exception {
+    public ProcessRequestResult reportReadings(ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws DatatypeConfigurationException, Exception {
         
         UserData userData = getUserCredentials(preferences);
         ArrayOfReadingReportItem lecturasSoap = new ArrayOfReadingReportItem();  
@@ -57,8 +58,8 @@ public class ServiceConsumer implements IServiceConsumer{
      */
     private static ProcessRequestResult reportReadingsToService(ArrayOfReadingReportItem readings, UserData userData) {
         ReadingReportService service = new ReadingReportService();
-        IReadingReportService port = service.getBasicHttpsBindingIReadingReportService();
-        ProcessRequestResult result = port.reportReadings(readings, userData);
+        IReadingReportService reportService = service.getBasicHttpsBindingIReadingReportService();
+        ProcessRequestResult result = reportService.reportReadings(readings, userData);
         return result;
     }
     
@@ -75,5 +76,20 @@ public class ServiceConsumer implements IServiceConsumer{
         userData.setPassword(userPassword);
         userData.setUserName(username);
         return userData;
+    }
+    
+    /**
+     * Permite conocer el estado del proceso de envio de lecturas
+     * @param processId
+     * @return
+     * @throws Exception 
+     */
+    @Override
+    public ReportReadingProcessResult getProcessStatus(IPreferencesManager preferences, String processId) throws Exception {
+        ReadingReportService service = new ReadingReportService();
+        IReadingReportService port = service.getBasicHttpsBindingIReadingReportService();
+        UserData userData = getUserCredentials(preferences);
+        ReportReadingProcessResult result = port.getProcessResult(processId, userData);
+        return result;
     }
 }

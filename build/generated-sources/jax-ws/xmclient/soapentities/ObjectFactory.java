@@ -61,22 +61,22 @@ public class ObjectFactory {
     private final static QName _Byte_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/", "byte");
     private final static QName _Double_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/", "double");
     private final static QName _QName_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/", "QName");
-    private final static QName _BorderStatusBorderCode_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "BorderCode");
-    private final static QName _BorderStatusType_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Type");
-    private final static QName _BorderStatusCGMCode_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "CGMCode");
     private final static QName _GetProcessResultResponseGetProcessResultResult_QNAME = new QName("http://tempuri.org/", "GetProcessResultResult");
-    private final static QName _ReportReadingsReadings_QNAME = new QName("http://tempuri.org/", "readings");
-    private final static QName _ReportReadingsUserData_QNAME = new QName("http://tempuri.org/", "userData");
-    private final static QName _BorderResultCode_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Code");
-    private final static QName _BorderResultValidationErrorMessage_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "ValidationErrorMessage");
-    private final static QName _BorderResultErrorMessage_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "ErrorMessage");
-    private final static QName _ReportReadingsResponseReportReadingsResult_QNAME = new QName("http://tempuri.org/", "ReportReadingsResult");
+    private final static QName _ReadingReportItemBorderCode_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "BorderCode");
     private final static QName _ReadingReportItemReadings_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Readings");
-    private final static QName _GetBorderStatusResponseGetBorderStatusResult_QNAME = new QName("http://tempuri.org/", "GetBorderStatusResult");
-    private final static QName _UserDataPassword_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Password");
-    private final static QName _UserDataUserName_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "UserName");
     private final static QName _BorderStatusResultResults_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Results");
     private final static QName _BorderStatusResultMessage_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Message");
+    private final static QName _ReportReadingsResponseReportReadingsResult_QNAME = new QName("http://tempuri.org/", "ReportReadingsResult");
+    private final static QName _UserDataPassword_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Password");
+    private final static QName _UserDataUserName_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "UserName");
+    private final static QName _ProcessRequestResultErrorMessage_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "ErrorMessage");
+    private final static QName _BorderResultCode_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Code");
+    private final static QName _BorderResultValidationErrorMessage_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "ValidationErrorMessage");
+    private final static QName _ReportReadingsReadings_QNAME = new QName("http://tempuri.org/", "readings");
+    private final static QName _ReportReadingsUserData_QNAME = new QName("http://tempuri.org/", "userData");
+    private final static QName _BorderStatusType_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "Type");
+    private final static QName _BorderStatusCGMCode_QNAME = new QName("http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", "CGMCode");
+    private final static QName _GetBorderStatusResponseGetBorderStatusResult_QNAME = new QName("http://tempuri.org/", "GetBorderStatusResult");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: xmclient.soapentities
@@ -519,33 +519,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "BorderCode", scope = BorderStatus.class)
-    public JAXBElement<String> createBorderStatusBorderCode(String value) {
-        return new JAXBElement<String>(_BorderStatusBorderCode_QNAME, String.class, BorderStatus.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "Type", scope = BorderStatus.class)
-    public JAXBElement<String> createBorderStatusType(String value) {
-        return new JAXBElement<String>(_BorderStatusType_QNAME, String.class, BorderStatus.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "CGMCode", scope = BorderStatus.class)
-    public JAXBElement<String> createBorderStatusCGMCode(String value) {
-        return new JAXBElement<String>(_BorderStatusCGMCode_QNAME, String.class, BorderStatus.class, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ReportReadingProcessResult }{@code >}}
      * 
      */
@@ -555,66 +528,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfReadingReportItem }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "readings", scope = ReportReadings.class)
-    public JAXBElement<ArrayOfReadingReportItem> createReportReadingsReadings(ArrayOfReadingReportItem value) {
-        return new JAXBElement<ArrayOfReadingReportItem>(_ReportReadingsReadings_QNAME, ArrayOfReadingReportItem.class, ReportReadings.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UserData }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "userData", scope = ReportReadings.class)
-    public JAXBElement<UserData> createReportReadingsUserData(UserData value) {
-        return new JAXBElement<UserData>(_ReportReadingsUserData_QNAME, UserData.class, ReportReadings.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "Code", scope = BorderResult.class)
-    public JAXBElement<String> createBorderResultCode(String value) {
-        return new JAXBElement<String>(_BorderResultCode_QNAME, String.class, BorderResult.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "ValidationErrorMessage", scope = BorderResult.class)
-    public JAXBElement<String> createBorderResultValidationErrorMessage(String value) {
-        return new JAXBElement<String>(_BorderResultValidationErrorMessage_QNAME, String.class, BorderResult.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "ErrorMessage", scope = BorderResult.class)
-    public JAXBElement<String> createBorderResultErrorMessage(String value) {
-        return new JAXBElement<String>(_BorderResultErrorMessage_QNAME, String.class, BorderResult.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ProcessRequestResult }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ReportReadingsResult", scope = ReportReadingsResponse.class)
-    public JAXBElement<ProcessRequestResult> createReportReadingsResponseReportReadingsResult(ProcessRequestResult value) {
-        return new JAXBElement<ProcessRequestResult>(_ReportReadingsResponseReportReadingsResult_QNAME, ProcessRequestResult.class, ReportReadingsResponse.class, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "BorderCode", scope = ReadingReportItem.class)
     public JAXBElement<String> createReadingReportItemBorderCode(String value) {
-        return new JAXBElement<String>(_BorderStatusBorderCode_QNAME, String.class, ReadingReportItem.class, value);
+        return new JAXBElement<String>(_ReadingReportItemBorderCode_QNAME, String.class, ReadingReportItem.class, value);
     }
 
     /**
@@ -627,12 +546,30 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BorderStatusResult }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfBorderStatus }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBorderStatusResult", scope = GetBorderStatusResponse.class)
-    public JAXBElement<BorderStatusResult> createGetBorderStatusResponseGetBorderStatusResult(BorderStatusResult value) {
-        return new JAXBElement<BorderStatusResult>(_GetBorderStatusResponseGetBorderStatusResult_QNAME, BorderStatusResult.class, GetBorderStatusResponse.class, value);
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "Results", scope = BorderStatusResult.class)
+    public JAXBElement<ArrayOfBorderStatus> createBorderStatusResultResults(ArrayOfBorderStatus value) {
+        return new JAXBElement<ArrayOfBorderStatus>(_BorderStatusResultResults_QNAME, ArrayOfBorderStatus.class, BorderStatusResult.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "Message", scope = BorderStatusResult.class)
+    public JAXBElement<String> createBorderStatusResultMessage(String value) {
+        return new JAXBElement<String>(_BorderStatusResultMessage_QNAME, String.class, BorderStatusResult.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ProcessRequestResult }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ReportReadingsResult", scope = ReportReadingsResponse.class)
+    public JAXBElement<ProcessRequestResult> createReportReadingsResponseReportReadingsResult(ProcessRequestResult value) {
+        return new JAXBElement<ProcessRequestResult>(_ReportReadingsResponseReportReadingsResult_QNAME, ProcessRequestResult.class, ReportReadingsResponse.class, value);
     }
 
     /**
@@ -659,25 +596,34 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "ErrorMessage", scope = ProcessRequestResult.class)
     public JAXBElement<String> createProcessRequestResultErrorMessage(String value) {
-        return new JAXBElement<String>(_BorderResultErrorMessage_QNAME, String.class, ProcessRequestResult.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfBorderStatus }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "Results", scope = BorderStatusResult.class)
-    public JAXBElement<ArrayOfBorderStatus> createBorderStatusResultResults(ArrayOfBorderStatus value) {
-        return new JAXBElement<ArrayOfBorderStatus>(_BorderStatusResultResults_QNAME, ArrayOfBorderStatus.class, BorderStatusResult.class, value);
+        return new JAXBElement<String>(_ProcessRequestResultErrorMessage_QNAME, String.class, ProcessRequestResult.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "Message", scope = BorderStatusResult.class)
-    public JAXBElement<String> createBorderStatusResultMessage(String value) {
-        return new JAXBElement<String>(_BorderStatusResultMessage_QNAME, String.class, BorderStatusResult.class, value);
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "Code", scope = BorderResult.class)
+    public JAXBElement<String> createBorderResultCode(String value) {
+        return new JAXBElement<String>(_BorderResultCode_QNAME, String.class, BorderResult.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "ValidationErrorMessage", scope = BorderResult.class)
+    public JAXBElement<String> createBorderResultValidationErrorMessage(String value) {
+        return new JAXBElement<String>(_BorderResultValidationErrorMessage_QNAME, String.class, BorderResult.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "ErrorMessage", scope = BorderResult.class)
+    public JAXBElement<String> createBorderResultErrorMessage(String value) {
+        return new JAXBElement<String>(_ProcessRequestResultErrorMessage_QNAME, String.class, BorderResult.class, value);
     }
 
     /**
@@ -690,12 +636,21 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfReadingReportItem }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "readings", scope = ReportReadings.class)
+    public JAXBElement<ArrayOfReadingReportItem> createReportReadingsReadings(ArrayOfReadingReportItem value) {
+        return new JAXBElement<ArrayOfReadingReportItem>(_ReportReadingsReadings_QNAME, ArrayOfReadingReportItem.class, ReportReadings.class, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UserData }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "userData", scope = GetBorderStatus.class)
-    public JAXBElement<UserData> createGetBorderStatusUserData(UserData value) {
-        return new JAXBElement<UserData>(_ReportReadingsUserData_QNAME, UserData.class, GetBorderStatus.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "userData", scope = ReportReadings.class)
+    public JAXBElement<UserData> createReportReadingsUserData(UserData value) {
+        return new JAXBElement<UserData>(_ReportReadingsUserData_QNAME, UserData.class, ReportReadings.class, value);
     }
 
     /**
@@ -705,6 +660,51 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://tempuri.org/", name = "userData", scope = GetProcessResult.class)
     public JAXBElement<UserData> createGetProcessResultUserData(UserData value) {
         return new JAXBElement<UserData>(_ReportReadingsUserData_QNAME, UserData.class, GetProcessResult.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UserData }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "userData", scope = GetBorderStatus.class)
+    public JAXBElement<UserData> createGetBorderStatusUserData(UserData value) {
+        return new JAXBElement<UserData>(_ReportReadingsUserData_QNAME, UserData.class, GetBorderStatus.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "BorderCode", scope = BorderStatus.class)
+    public JAXBElement<String> createBorderStatusBorderCode(String value) {
+        return new JAXBElement<String>(_ReadingReportItemBorderCode_QNAME, String.class, BorderStatus.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "Type", scope = BorderStatus.class)
+    public JAXBElement<String> createBorderStatusType(String value) {
+        return new JAXBElement<String>(_BorderStatusType_QNAME, String.class, BorderStatus.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", name = "CGMCode", scope = BorderStatus.class)
+    public JAXBElement<String> createBorderStatusCGMCode(String value) {
+        return new JAXBElement<String>(_BorderStatusCGMCode_QNAME, String.class, BorderStatus.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BorderStatusResult }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBorderStatusResult", scope = GetBorderStatusResponse.class)
+    public JAXBElement<BorderStatusResult> createGetBorderStatusResponseGetBorderStatusResult(BorderStatusResult value) {
+        return new JAXBElement<BorderStatusResult>(_GetBorderStatusResponseGetBorderStatusResult_QNAME, BorderStatusResult.class, GetBorderStatusResponse.class, value);
     }
 
 }
