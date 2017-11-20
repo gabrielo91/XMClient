@@ -61,7 +61,6 @@ public class ServiceConsumer implements IServiceConsumer{
     private ProcessRequestResult reportReadingsToService(ArrayOfReadingReportItem readings, IPreferencesManager preferences) throws Exception {
         UserData userData = getUserCredentials(preferences);
         URL url = new URL(getEndPoint(preferences));
-        System.out.println("Endpoint: "+getEndPoint(preferences));
         QName qName = new QName("http://tempuri.org/", "ReadingReportService");
         Service service = Service.create(url, qName);
         IReadingReportService reportService = service.getPort(IReadingReportService.class);
