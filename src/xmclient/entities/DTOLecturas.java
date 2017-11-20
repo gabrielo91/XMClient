@@ -18,9 +18,10 @@ public class DTOLecturas {
     private Date fechaInicio; 
     private String codigoFrontera; 
 
-    public DTOLecturas(List<Double> lecturas, Date fechaInicio) {
+    public DTOLecturas(List<Double> lecturas, Date fechaInicio, String codigoFrontera) {
         this.lecturas = lecturas;
         this.fechaInicio = fechaInicio;
+        this.codigoFrontera = codigoFrontera;
     }
 
     public DTOLecturas() {
