@@ -5,9 +5,12 @@
  */
 package xmclient.soapclient;
 
+import java.net.URL;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBElement;
 import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 import xmclient.entities.DTOLecturas;
 import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.soapentities.ArrayOfReadingReportItem;
@@ -35,7 +38,6 @@ public class ServiceConsumer implements IServiceConsumer{
     @Override
     public ProcessRequestResult reportReadings(ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws DatatypeConfigurationException, Exception {
         
-        UserData userData = getUserCredentials(preferences);
         ArrayOfReadingReportItem lecturasSoap = new ArrayOfReadingReportItem();  
         ArrayList <ReadingReportItem> paqueteLecturas = new ArrayList<>();
         ReadingReportItem lecturasPorFrontera;
@@ -46,7 +48,7 @@ public class ServiceConsumer implements IServiceConsumer{
         }
            
         lecturasSoap.getReadingReportItem().addAll(paqueteLecturas);
-        ProcessRequestResult processRequestResult = reportReadingsToService(lecturasSoap, userData);
+        ProcessRequestResult processRequestResult = reportReadingsToService(lecturasSoap, preferences);
         return processRequestResult;
     }    
 
@@ -56,15 +58,19 @@ public class ServiceConsumer implements IServiceConsumer{
      * @param userData
      * @return ProcessRequestResult
      */
-    private static ProcessRequestResult reportReadingsToService(ArrayOfReadingReportItem readings, UserData userData) {
-        ReadingReportService service = new ReadingReportService();
-        IReadingReportService reportService = service.getBasicHttpsBindingIReadingReportService();
+    private ProcessRequestResult reportReadingsToService(ArrayOfReadingReportItem readings, IPreferencesManager preferences) throws Exception {
+        UserData userData = getUserCredentials(preferences);
+        URL url = new URL(getEndPoint(preferences));
+        System.out.println("Endpoint: "+getEndPoint(preferences));
+        QName qName = new QName("http://tempuri.org/", "ReadingReportService");
+        Service service = Service.create(url, qName);
+        IReadingReportService reportService = service.getPort(IReadingReportService.class);
         ProcessRequestResult result = reportService.reportReadings(readings, userData);
         return result;
     }
     
     /**
-     * Permite fijar las cabeceras de autenticación y demas parámetros de configuración para el consumodel servcio.
+     * Permite retornar los datos de autenticación y demas parámetros de configuración para el consumodel servcio.
      * @param preferences
      * @return UserData
      */
@@ -76,6 +82,17 @@ public class ServiceConsumer implements IServiceConsumer{
         userData.setPassword(userPassword);
         userData.setUserName(username);
         return userData;
+    }
+    
+    /**
+     * Retorna el endpoint del servicio a consumir
+     * @param preferences
+     * @return
+     * @throws Exception 
+     */
+    private String getEndPoint(IPreferencesManager preferences)throws Exception {
+        String endpoint = preferences.getServiceEndPoint();
+        return endpoint;
     }
     
     /**

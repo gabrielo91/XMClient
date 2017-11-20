@@ -11,11 +11,8 @@ import xmclient.soapclient.ServiceConsumer;
 import xmclient.entities.DTOLecturas;
 import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.preferencesmanager.PreferencesManager;
-import xmclient.soapentities.IReadingReportService;
 import xmclient.soapentities.ProcessRequestResult;
-import xmclient.soapentities.ReadingReportService;
 import xmclient.soapentities.ReportReadingProcessResult;
-import xmclient.soapentities.UserData;
 
 /**
  *
