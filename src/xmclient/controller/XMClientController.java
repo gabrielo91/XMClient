@@ -78,7 +78,5 @@ public class XMClientController {
         ReportReadingProcessResult result = serviceConsumer.getProcessStatus(preferences, processId);
         return result;
     }
-    
-    
-    
+
 }

@@ -28,8 +28,12 @@ public class DTOLecturas {
         this.isBackupBoolean = isBackupBoolean;
     }
 
-    public List<Double> getLecturas() {
-        return lecturas;
+    public List<Double> getLecturas() throws Exception {
+        if(lecturas != null && lecturas.size() == 24){
+            return lecturas;
+        }else{
+            throw new Exception("Size of readings array must be 24 ");
+        }
     }
 
     public void setLecturas(List<Double> lecturas) {
