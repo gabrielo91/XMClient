@@ -20,9 +20,7 @@ import xmclient.soapentities.ReadingReportItem;
  * @author Gabriel Ortega
  */
 public class LecturasTransformer {
-    
-    public static int READING_COUNT = 24;
-    
+        
     /**
      * Permite convertir las lecturas empaquetadas en los DTO, en entidades propias del servicio SOAP a consumir
      * @param paqueteLecturas
@@ -31,7 +29,7 @@ public class LecturasTransformer {
      */
     public static ReadingReportItem crearPaqueteLecturas(DTOLecturas paqueteLecturas) throws DatatypeConfigurationException {
         
-        ReadingReportItem lecturas0PorFrontera = new ReadingReportItem();
+        ReadingReportItem lecturasPorFrontera = new ReadingReportItem();
         ObjectFactory factory = new ObjectFactory();
         JAXBElement<String> borderCode = factory.createReadingReportItemBorderCode(paqueteLecturas.getCodigoFrontera());
         
@@ -43,12 +41,14 @@ public class LecturasTransformer {
         arrayLecturas.getDouble().addAll(paqueteLecturas.getLecturas());                
         JAXBElement<ArrayOfdouble> readings = factory.createArrayOfdouble(arrayLecturas);
         
-        lecturas0PorFrontera.setBorderCode(borderCode);
-        lecturas0PorFrontera.setReadingCount(READING_COUNT);
-        lecturas0PorFrontera.setStartDate(startDate);
-        lecturas0PorFrontera.setReadings(readings);
-       
-        return lecturas0PorFrontera;
+        lecturasPorFrontera.setBorderCode(borderCode);
+        lecturasPorFrontera.setStartDate(startDate);
+        lecturasPorFrontera.setReadings(readings);
+        lecturasPorFrontera.setIsBackup(paqueteLecturas.getIsBackupBoolean());
+        lecturasPorFrontera.setReadingCount(paqueteLecturas.READING_COUNT);
+        lecturasPorFrontera.setReadingInterval(paqueteLecturas.READING_INTERVAL);
+                
+        return lecturasPorFrontera;
     }
 }
 

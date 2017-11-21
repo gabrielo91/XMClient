@@ -14,18 +14,18 @@ import java.util.List;
 public class DTOLecturas {
     
     public final String FORMATO_FECHA = "yyyy-MM-dd HH:mm:ss";
+    public final int READING_COUNT = 24;
+    public final int READING_INTERVAL = 60;
     private List<Double> lecturas;
     private Date fechaInicio; 
-    private String codigoFrontera; 
-
-    public DTOLecturas(List<Double> lecturas, Date fechaInicio, String codigoFrontera) {
+    private String codigoFrontera;
+    private Boolean isBackupBoolean;
+    
+    public DTOLecturas(List<Double> lecturas, Date fechaInicio, String codigoFrontera, Boolean isBackupBoolean) {
         this.lecturas = lecturas;
         this.fechaInicio = fechaInicio;
         this.codigoFrontera = codigoFrontera;
-    }
-
-    public DTOLecturas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.isBackupBoolean = isBackupBoolean;
     }
 
     public List<Double> getLecturas() {
@@ -50,6 +50,14 @@ public class DTOLecturas {
 
     public Date getFechaInicio() {
         return fechaInicio;
+    }
+
+    public Boolean getIsBackupBoolean() {
+        return isBackupBoolean;
+    }
+
+    public void setIsBackupBoolean(Boolean isBackupBoolean) {
+        this.isBackupBoolean = isBackupBoolean;
     }
     
     
