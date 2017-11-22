@@ -25,7 +25,7 @@ public class XMClientController {
      * @param serviceConsumer
      * @param lecturas
      * @param preferences
-     * @return
+     * @return ProcessRequestResult
      * @throws Exception 
      */
     public static ProcessRequestResult reportReadings(IServiceConsumer serviceConsumer, ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception {
@@ -37,7 +37,7 @@ public class XMClientController {
      * Método para conocer el estado del proceso, asi como el estado del envio de datos por cada una de las fronteras
      * @param serviceConsumer
      * @param processId
-     * @return
+     * @return ReportReadingProcessResult
      * @throws Exception 
      */
     public static ReportReadingProcessResult getProcessStatus(IServiceConsumer serviceConsumer, IPreferencesManager preferences, String processId) throws Exception {
