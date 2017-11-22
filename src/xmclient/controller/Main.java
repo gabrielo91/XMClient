@@ -44,20 +44,22 @@ public class Main {
             //**************************************************************
             
             //This is the way how service must be called ------------------>
-            XMClientController xMClientController = new XMClientController();   
+            //Objects to inject
+            IServiceConsumer serviceConsumer = new ServiceConsumer();
+            IPreferencesManager preferences = new PreferencesManager();
+            
+            XMClientController xMClientController = new XMClientController(serviceConsumer, preferences);    
                       
             System.out.println("Starting..");
             String processId;
 
-            //Objects to inject
-            IServiceConsumer serviceConsumer = new ServiceConsumer();
-            IPreferencesManager preferencesManager = new PreferencesManager();
+            
 
             //Report readings
-            ProcessRequestResult respuesta = xMClientController.reportReadings(serviceConsumer, listaLecturas, preferencesManager);
+            ProcessRequestResult respuesta = xMClientController.reportReadings(listaLecturas);
 
             //In order to get report status
-            ReportReadingProcessResult readingProcessResult = xMClientController.getProcessStatus(serviceConsumer, preferencesManager, respuesta.getProcessId());
+            ReportReadingProcessResult readingProcessResult = xMClientController.getProcessStatus(respuesta.getProcessId());
 
             if (respuesta.isProcessAccepted()) {
                 System.out.println("Succes Operation");
