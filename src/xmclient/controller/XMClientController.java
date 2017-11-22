@@ -21,50 +21,16 @@ import xmclient.soapentities.ReportReadingProcessResult;
 public class XMClientController {
 
     /**
-     * Método para el envio de lecturas al servicio de XM
-     * @param listaLecturas
-     * @return Retorna un objeto del tipo ProcessRequestResult con toda la información de la operación realizada
+     * Método para realizar el envio de lecturas al servicio de XM
+     * @param serviceConsumer
+     * @param lecturas
+     * @param preferences
+     * @return
      * @throws Exception 
      */
-    public ProcessRequestResult enviarLecturas(ArrayList<DTOLecturas> listaLecturas) throws Exception {
-
-        System.out.println("Starting..");
-        
-        String processId;
-        
-        //Objects to inject
-        IServiceConsumer serviceConsumer = new ServiceConsumer();
-        IPreferencesManager preferencesManager = new PreferencesManager();
-
-        ProcessRequestResult respuesta = reportReadings(serviceConsumer, listaLecturas, preferencesManager);
-        boolean resultadoOperacion = procesarRespuesta(respuesta);
-
-        if (resultadoOperacion) {
-            System.out.println("Succes Operation");
-            processId = respuesta.getProcessId();
-            System.out.println("Process ID:" + processId);
-           
-        } else {
-            System.out.println("Error");
-            System.out.println("Operation result message: " + respuesta.getErrorMessage().getValue());
-        }
-        
-        System.out.println("Finished");
-        return respuesta;
-    }
-    
-    private ProcessRequestResult reportReadings(IServiceConsumer serviceConsumer, ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception {
+    public static ProcessRequestResult reportReadings(IServiceConsumer serviceConsumer, ArrayList<DTOLecturas> lecturas, IPreferencesManager preferences) throws Exception {
         ProcessRequestResult result = serviceConsumer.reportReadings(lecturas, preferences);
         return result;
-    }
-
-    /**
-     * Devuelve un booleano basado en al respuesta del envìo de lecturas, indicando si la operación fue exitosa o no.
-     * @param resultadoOperacion
-     * @return isProcessAccepted
-     */
-    public boolean procesarRespuesta(ProcessRequestResult resultadoOperacion) {
-        return resultadoOperacion.isProcessAccepted();
     }
     
     /**
@@ -74,7 +40,7 @@ public class XMClientController {
      * @return
      * @throws Exception 
      */
-    private static ReportReadingProcessResult getProcessStatus(IServiceConsumer serviceConsumer, IPreferencesManager preferences, String processId) throws Exception {
+    public static ReportReadingProcessResult getProcessStatus(IServiceConsumer serviceConsumer, IPreferencesManager preferences, String processId) throws Exception {
         ReportReadingProcessResult result = serviceConsumer.getProcessStatus(preferences, processId);
         return result;
     }
