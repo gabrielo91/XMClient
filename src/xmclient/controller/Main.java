@@ -36,8 +36,7 @@ public class Main {
             }            
             DTOLecturas lecturas = new DTOLecturas(arrayLecturas, new Date(), "12345", Boolean.FALSE);
             //Testing -----------------------------------------------
-            
-            
+                        
             //Replace this list with the array of data to send  ***********
             ArrayList<DTOLecturas>  listaLecturas = new ArrayList();
             listaLecturas.add(lecturas);
@@ -52,8 +51,6 @@ public class Main {
                       
             System.out.println("Starting..");
             String processId;
-
-            
 
             //Report readings
             ProcessRequestResult respuesta = xMClientController.reportReadings(listaLecturas);
