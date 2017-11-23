@@ -1,0 +1,10 @@
+{
+    "author":"Gabriel Ortega Rosero",
+    "version": "1.0.0",
+    "username":"comer2",
+    "password":"comer2",
+    "endpoint":"190.156.238.17",
+    "port":"8091",
+    "driver":"oracle.jdbc.driver.OracleDriver"
+    
+}

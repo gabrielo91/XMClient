@@ -5,18 +5,24 @@
  */
 package xmclient.controller;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import xmclient.entities.DTOLecturas;
+import xmclient.persistence.controller.DBControl;
+import xmclient.persistence.controller.DBParamsReader;
+import xmclient.persistence.controller.IDBControl;
+import xmclient.persistence.controller.IDBParamsReader;
+import xmclient.persistence.daos.DAOLecturas;
 import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.preferencesmanager.PreferencesManager;
 import xmclient.soapclient.IServiceConsumer;
 import xmclient.soapclient.ServiceConsumer;
-import xmclient.soapentities.ProcessRequestResult;
-import xmclient.soapentities.ReportReadingProcessResult;
+//import xmclient.soapentities.ProcessRequestResult;
+//import xmclient.soapentities.ReportReadingProcessResult;
 
 /**
  *
@@ -42,6 +48,14 @@ public class Main {
             listaLecturas.add(lecturas);
             //**************************************************************
             
+            // Get data from database
+            IDBParamsReader dBParamsReader = new DBParamsReader();
+            IDBControl dBControl = new DBControl(dBParamsReader);
+            
+            DAOLecturas daoLecturas = new DAOLecturas(dBControl);
+
+            
+            /**
             //This is the way how service must be called ------------------>
             //Objects to inject
             IServiceConsumer serviceConsumer = new ServiceConsumer();
@@ -71,7 +85,7 @@ public class Main {
             System.out.println("Finished");
             // ------------------------------------------------------------->
   
-            
+            */
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
