@@ -27,7 +27,7 @@ public class LecturasTransformer {
      * @return ReadingReportItem
      * @throws DatatypeConfigurationException 
      */
-    public static ReadingReportItem crearPaqueteLecturas(DTOLecturas paqueteLecturas) throws DatatypeConfigurationException {
+    public static ReadingReportItem crearPaqueteLecturas(DTOLecturas paqueteLecturas) throws DatatypeConfigurationException, Exception {
         
         ReadingReportItem lecturasPorFrontera = new ReadingReportItem();
         ObjectFactory factory = new ObjectFactory();

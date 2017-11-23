@@ -23,7 +23,7 @@ public class XMClientController {
 
     public XMClientController(IServiceConsumer serviceConsumer, IPreferencesManager preferencesManager) {
         this.serviceConsumer = serviceConsumer;
-        this.preferences = preferences;
+        this.preferences = preferencesManager;
     }
         
     
