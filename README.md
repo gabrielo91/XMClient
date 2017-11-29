@@ -7,6 +7,6 @@ Cliente para el reporte de lecturas al servicio web de XM
 
 ó
 
-  https://docs.microsoft.com/en-in/azure/java-add-certificate-ca-store
+      https://docs.microsoft.com/en-in/azure/java-add-certificate-ca-store
 
 
