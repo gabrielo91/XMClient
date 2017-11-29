@@ -25,7 +25,7 @@ public class XMClientController {
         this.serviceConsumer = serviceConsumer;
         this.preferences = preferencesManager;
     }
-        
+       
     
     /**
      * Método para realizar el envio de lecturas al servicio de XM

@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-ReadingReportService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/ReadingReportService"/>
-        <property name="wsdl-ReadingReportService" location="xml-resources/web-service-references/ReadingReportService/wsdl/readingreportserviceprb.xm.com.co/ReadingReportService.svc.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ReadingReportService" destdir="${build.generated.dir}/jax-wsCache/ReadingReportService" wsdl="${wsdl-ReadingReportService}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl" xnocompile="true" xendorsed="true" package="xmclient.soapentities">
-            <depends file="${wsdl-ReadingReportService}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/ReadingReportService"/>
+    <target name="wsimport-client-ReportReadings" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ReportReadings"/>
+        <property name="wsdl-ReportReadings" location="xml-resources/web-service-references/ReportReadings/wsdl/ReportReadings.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ReportReadings" destdir="${build.generated.dir}/jax-wsCache/ReportReadings" wsdl="${wsdl-ReportReadings}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/D:/DesarrolloXMCliente/GeneradorServicio/ReportReadings.wsdl" xnocompile="true" xendorsed="true" package="xmclient.soapentities">
+            <depends file="${wsdl-ReportReadings}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ReportReadings"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/ReadingReportService">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ReportReadings">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-ReadingReportService" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/ReadingReportService"/>
+    <target name="wsimport-client-clean-ReportReadings" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ReportReadings"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/xmclient/soapentities"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ReadingReportService"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-ReportReadings"/>
 </project>

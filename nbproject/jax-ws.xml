@@ -2,9 +2,9 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="ReadingReportService">
-      <wsdl-url>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl</wsdl-url>
-      <local-wsdl-file>readingreportserviceprb.xm.com.co/ReadingReportService.svc.wsdl</local-wsdl-file>
+    <client name="ReportReadings">
+      <wsdl-url>file:/D:/DesarrolloXMCliente/GeneradorServicio/ReportReadings.wsdl</wsdl-url>
+      <local-wsdl-file>ReportReadings.wsdl</local-wsdl-file>
       <package-name forceReplace="true">xmclient.soapentities</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl</wsimport-option-value>
+          <wsimport-option-value>file:/D:/DesarrolloXMCliente/GeneradorServicio/ReportReadings.wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

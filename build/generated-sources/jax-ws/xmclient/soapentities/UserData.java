@@ -1,10 +1,9 @@
 
 package xmclient.soapentities;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -18,8 +17,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="UserName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="Password" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="UserName" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,20 +34,20 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class UserData {
 
-    @XmlElementRef(name = "Password", namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", type = JAXBElement.class, required = false)
-    protected JAXBElement<String> password;
-    @XmlElementRef(name = "UserName", namespace = "http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs", type = JAXBElement.class, required = false)
-    protected JAXBElement<String> userName;
+    @XmlElement(name = "Password", required = true, nillable = true)
+    protected String password;
+    @XmlElement(name = "UserName", required = true, nillable = true)
+    protected String userName;
 
     /**
      * Obtiene el valor de la propiedad password.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getPassword() {
+    public String getPassword() {
         return password;
     }
 
@@ -57,10 +56,10 @@ public class UserData {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setPassword(JAXBElement<String> value) {
+    public void setPassword(String value) {
         this.password = value;
     }
 
@@ -69,10 +68,10 @@ public class UserData {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getUserName() {
+    public String getUserName() {
         return userName;
     }
 
@@ -81,10 +80,10 @@ public class UserData {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setUserName(JAXBElement<String> value) {
+    public void setUserName(String value) {
         this.userName = value;
     }
 

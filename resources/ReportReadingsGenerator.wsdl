@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReadingReportService" targetNamespace="http://tempuri.org/">
+   <wsp:Policy wsu:Id="BasicHttpsBinding_IReadingReportService_policy">
+      <wsp:ExactlyOne>
+         <wsp:All>
+            <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+               <wsp:Policy>
+                  <sp:TransportToken>
+                     <wsp:Policy>
+                        <sp:HttpsToken RequireClientCertificate="false" />
+                     </wsp:Policy>
+                  </sp:TransportToken>
+                  <sp:AlgorithmSuite>
+                     <wsp:Policy>
+                        <sp:Basic256 />
+                     </wsp:Policy>
+                  </sp:AlgorithmSuite>
+                  <sp:Layout>
+                     <wsp:Policy>
+                        <sp:Strict />
+                     </wsp:Policy>
+                  </sp:Layout>
+               </wsp:Policy>
+            </sp:TransportBinding>
+         </wsp:All>
+      </wsp:ExactlyOne>
+   </wsp:Policy>
+   <wsdl:types>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+         <xs:import namespace="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" />
+         <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+         <xs:element name="ReportReadings">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" minOccurs="0" name="readings" nillable="true" type="q1:ArrayOfReadingReportItem" />
+                  <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" minOccurs="0" name="userData" nillable="true" type="q2:UserData" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="ReportReadingsResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" minOccurs="0" name="ReportReadingsResult" nillable="true" type="q3:ProcessRequestResult" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetProcessResult">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="processId" type="q4:guid" />
+                  <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" minOccurs="0" name="userData" nillable="true" type="q5:UserData" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetProcessResultResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" minOccurs="0" name="GetProcessResultResult" nillable="true" type="q6:ReportReadingProcessResult" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetBorderStatus">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" minOccurs="0" name="userData" nillable="true" type="q7:UserData" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetBorderStatusResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" minOccurs="0" name="GetBorderStatusResult" nillable="true" type="q8:BorderStatusResult" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:schema>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/">
+         <xs:element name="anyType" nillable="true" type="xs:anyType" />
+         <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+         <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+         <xs:element name="boolean" nillable="true" type="xs:boolean" />
+         <xs:element name="byte" nillable="true" type="xs:byte" />
+         <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+         <xs:element name="decimal" nillable="true" type="xs:decimal" />
+         <xs:element name="double" nillable="true" type="xs:double" />
+         <xs:element name="float" nillable="true" type="xs:float" />
+         <xs:element name="int" nillable="true" type="xs:int" />
+         <xs:element name="long" nillable="true" type="xs:long" />
+         <xs:element name="QName" nillable="true" type="xs:QName" />
+         <xs:element name="short" nillable="true" type="xs:short" />
+         <xs:element name="string" nillable="true" type="xs:string" />
+         <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+         <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+         <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+         <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+         <xs:element name="char" nillable="true" type="tns:char" />
+         <xs:simpleType name="char">
+            <xs:restriction base="xs:int" />
+         </xs:simpleType>
+         <xs:element name="duration" nillable="true" type="tns:duration" />
+         <xs:simpleType name="duration">
+            <xs:restriction base="xs:duration">
+               <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+               <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+               <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:element name="guid" nillable="true" type="tns:guid" />
+         <xs:simpleType name="guid">
+            <xs:restriction base="xs:string">
+               <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:attribute name="FactoryType" type="xs:QName" />
+         <xs:attribute name="Id" type="xs:ID" />
+         <xs:attribute name="Ref" type="xs:IDREF" />
+      </xs:schema>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Primestone.PrimeRead.ReadingReportServiceLibrary.DTOs">
+         <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+         <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+         <xs:complexType name="ArrayOfReadingReportItem">
+            <xs:sequence>
+               <xs:element minOccurs="0" maxOccurs="unbounded" name="ReadingReportItem" nillable="true" type="tns:ReadingReportItem" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="ArrayOfReadingReportItem" nillable="true" type="tns:ArrayOfReadingReportItem" />
+         <xs:complexType name="ReadingReportItem">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="BorderCode" nillable="true" type="xs:string" />
+               <xs:element minOccurs="0" name="IsBackup" type="xs:boolean" />
+               <xs:element minOccurs="0" name="ReadingCount" type="xs:int" />
+               <xs:element minOccurs="0" name="ReadingInterval" type="xs:int" />
+               <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Readings" nillable="true" type="q1:ArrayOfdouble" />
+               <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="ReadingReportItem" nillable="true" type="tns:ReadingReportItem" />
+         <xs:complexType name="UserData">
+            <xs:sequence>
+               <xs:element minOccurs="1" name="Password" nillable="true" type="xs:string" />
+               <xs:element minOccurs="1" name="UserName" nillable="true" type="xs:string" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="UserData" nillable="true" type="tns:UserData" />
+         <xs:complexType name="ProcessRequestResult">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+               <xs:element minOccurs="0" name="ProcessAccepted" type="xs:boolean" />
+               <xs:element minOccurs="0" name="ProcessId" type="ser:guid" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="ProcessRequestResult" nillable="true" type="tns:ProcessRequestResult" />
+         <xs:complexType name="ReportReadingProcessResult">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="HasValidationErrors" type="xs:boolean" />
+               <xs:element minOccurs="0" name="ProcessDone" type="xs:boolean" />
+               <xs:element minOccurs="0" name="ResultFlag" type="tns:ProcessResultFlag" />
+               <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfBorderResult" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="ReportReadingProcessResult" nillable="true" type="tns:ReportReadingProcessResult" />
+         <xs:simpleType name="ProcessResultFlag">
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="Success">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:enumeration>
+               <xs:enumeration value="Warning">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:enumeration>
+               <xs:enumeration value="Error">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:enumeration>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:element name="ProcessResultFlag" nillable="true" type="tns:ProcessResultFlag" />
+         <xs:complexType name="ArrayOfBorderResult">
+            <xs:sequence>
+               <xs:element minOccurs="0" maxOccurs="unbounded" name="BorderResult" nillable="true" type="tns:BorderResult" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="ArrayOfBorderResult" nillable="true" type="tns:ArrayOfBorderResult" />
+         <xs:complexType name="BorderResult">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+               <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+               <xs:element minOccurs="0" name="HasValidationErrors" type="xs:boolean" />
+               <xs:element minOccurs="0" name="ResultFlag" type="tns:ProcessResultFlag" />
+               <xs:element minOccurs="0" name="ValidationErrorMessage" nillable="true" type="xs:string" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="BorderResult" nillable="true" type="tns:BorderResult" />
+         <xs:complexType name="BorderStatusResult">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+               <xs:element minOccurs="0" name="ResultFlag" type="tns:ProcessResultFlag" />
+               <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfBorderStatus" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="BorderStatusResult" nillable="true" type="tns:BorderStatusResult" />
+         <xs:complexType name="ArrayOfBorderStatus">
+            <xs:sequence>
+               <xs:element minOccurs="0" maxOccurs="unbounded" name="BorderStatus" nillable="true" type="tns:BorderStatus" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="ArrayOfBorderStatus" nillable="true" type="tns:ArrayOfBorderStatus" />
+         <xs:complexType name="BorderStatus">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="BorderCode" nillable="true" type="xs:string" />
+               <xs:element minOccurs="0" name="CGMCode" nillable="true" type="xs:string" />
+               <xs:element minOccurs="0" name="LastReadDate" type="xs:dateTime" />
+               <xs:element minOccurs="0" name="Status" type="xs:boolean" />
+               <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="BorderStatus" nillable="true" type="tns:BorderStatus" />
+      </xs:schema>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+         <xs:complexType name="ArrayOfdouble">
+            <xs:sequence>
+               <xs:element minOccurs="0" maxOccurs="unbounded" name="double" type="xs:double" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="ArrayOfdouble" nillable="true" type="tns:ArrayOfdouble" />
+      </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="IReadingReportService_ReportReadings_InputMessage">
+      <wsdl:part name="parameters" element="tns:ReportReadings" />
+   </wsdl:message>
+   <wsdl:message name="IReadingReportService_ReportReadings_OutputMessage">
+      <wsdl:part name="parameters" element="tns:ReportReadingsResponse" />
+   </wsdl:message>
+   <wsdl:message name="IReadingReportService_GetProcessResult_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetProcessResult" />
+   </wsdl:message>
+   <wsdl:message name="IReadingReportService_GetProcessResult_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetProcessResultResponse" />
+   </wsdl:message>
+   <wsdl:message name="IReadingReportService_GetBorderStatus_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetBorderStatus" />
+   </wsdl:message>
+   <wsdl:message name="IReadingReportService_GetBorderStatus_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetBorderStatusResponse" />
+   </wsdl:message>
+   <wsdl:portType name="IReadingReportService">
+      <wsdl:operation name="ReportReadings">
+         <wsdl:input wsaw:Action="http://tempuri.org/IReadingReportService/ReportReadings" message="tns:IReadingReportService_ReportReadings_InputMessage" />
+         <wsdl:output wsaw:Action="http://tempuri.org/IReadingReportService/ReportReadingsResponse" message="tns:IReadingReportService_ReportReadings_OutputMessage" />
+      </wsdl:operation>
+      <wsdl:operation name="GetProcessResult">
+         <wsdl:input wsaw:Action="http://tempuri.org/IReadingReportService/GetProcessResult" message="tns:IReadingReportService_GetProcessResult_InputMessage" />
+         <wsdl:output wsaw:Action="http://tempuri.org/IReadingReportService/GetProcessResultResponse" message="tns:IReadingReportService_GetProcessResult_OutputMessage" />
+      </wsdl:operation>
+      <wsdl:operation name="GetBorderStatus">
+         <wsdl:input wsaw:Action="http://tempuri.org/IReadingReportService/GetBorderStatus" message="tns:IReadingReportService_GetBorderStatus_InputMessage" />
+         <wsdl:output wsaw:Action="http://tempuri.org/IReadingReportService/GetBorderStatusResponse" message="tns:IReadingReportService_GetBorderStatus_OutputMessage" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="BasicHttpsBinding_IReadingReportService" type="tns:IReadingReportService">
+      <wsp:PolicyReference URI="#BasicHttpsBinding_IReadingReportService_policy" />
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="ReportReadings">
+         <soap:operation soapAction="http://tempuri.org/IReadingReportService/ReportReadings" style="document" />
+         <wsdl:input>
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetProcessResult">
+         <soap:operation soapAction="http://tempuri.org/IReadingReportService/GetProcessResult" style="document" />
+         <wsdl:input>
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetBorderStatus">
+         <soap:operation soapAction="http://tempuri.org/IReadingReportService/GetBorderStatus" style="document" />
+         <wsdl:input>
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="ReadingReportService">
+      <wsdl:port name="BasicHttpsBinding_IReadingReportService" binding="tns:BasicHttpsBinding_IReadingReportService">
+         <soap:address location="https://readingreportservice.xm.com.co/ReadingReportService.svc" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

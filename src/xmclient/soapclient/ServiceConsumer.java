@@ -7,7 +7,6 @@ package xmclient.soapclient;
 
 import java.net.URL;
 import java.util.ArrayList;
-import javax.xml.bind.JAXBElement;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
@@ -15,7 +14,6 @@ import xmclient.entities.DTOLecturas;
 import xmclient.preferencesmanager.IPreferencesManager;
 import xmclient.soapentities.ArrayOfReadingReportItem;
 import xmclient.soapentities.IReadingReportService;
-import xmclient.soapentities.ObjectFactory;
 import xmclient.soapentities.ProcessRequestResult;
 import xmclient.soapentities.ReadingReportItem;
 import xmclient.soapentities.ReadingReportService;
@@ -74,12 +72,9 @@ public class ServiceConsumer implements IServiceConsumer{
      * @return UserData
      */
     private UserData getUserCredentials(IPreferencesManager preferences) throws Exception {
-        UserData userData = new UserData();
-        ObjectFactory factory = new ObjectFactory();
-        JAXBElement<String> userPassword = factory.createUserDataPassword(preferences.getPasword());
-        JAXBElement<String> username = factory.createUserDataPassword(preferences.getUsername());                
-        userData.setPassword(userPassword);
-        userData.setUserName(username);
+        UserData userData = new UserData();             
+        userData.setUserName(preferences.getUsername());
+        userData.setPassword(preferences.getPasword());
         return userData;
     }
     

@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ReadingReportService", targetNamespace = "http://tempuri.org/", wsdlLocation = "https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl")
+@WebServiceClient(name = "ReadingReportService", targetNamespace = "http://tempuri.org/", wsdlLocation = "file:/D:/DesarrolloXMCliente/GeneradorServicio/ReportReadings.wsdl")
 public class ReadingReportService
     extends Service
 {
@@ -30,7 +30,7 @@ public class ReadingReportService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl");
+            url = new URL("file:/D:/DesarrolloXMCliente/GeneradorServicio/ReportReadings.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
