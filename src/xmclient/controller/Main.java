@@ -32,7 +32,6 @@ public class Main {
             List<Double> arrayLecturas = new ArrayList<>();
             Double lecturasEjemplo = 0.0;
             for (int i = 0; i < 24; i++) {
-                //lecturasEjemplo++;
                 arrayLecturas.add(lecturasEjemplo);
             }            
             //DTOLecturas lecturas = new DTOLecturas(arrayLecturas, new Date(), "Frt22508", Boolean.FALSE);
@@ -60,13 +59,15 @@ public class Main {
             //Report readings
             ProcessRequestResult respuesta = xMClientController.reportReadings(listaLecturas);
 
-            //In order to get report status
+            //In order to get report status, A DELAY MUST BE PLACED HERE
             ReportReadingProcessResult readingProcessResult = xMClientController.getProcessStatus(respuesta.getProcessId());
-
+            xMClientController.printProcessResult(readingProcessResult);
+            
             if (respuesta.isProcessAccepted()) {
                 System.out.println("Succes Operation");
                 processId = respuesta.getProcessId();
                 System.out.println("Process ID:" + processId);
+
 
             } else {
                 System.out.println("Error");

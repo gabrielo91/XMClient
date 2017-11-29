@@ -6,9 +6,12 @@
 package xmclient.controller;
 
 import java.util.ArrayList;
+import javax.xml.bind.JAXBElement;
 import xmclient.soapclient.IServiceConsumer;
 import xmclient.entities.DTOLecturas;
 import xmclient.preferencesmanager.IPreferencesManager;
+import xmclient.soapentities.ArrayOfBorderResult;
+import xmclient.soapentities.BorderResult;
 import xmclient.soapentities.ProcessRequestResult;
 import xmclient.soapentities.ReportReadingProcessResult;
 
@@ -47,6 +50,25 @@ public class XMClientController {
     public ReportReadingProcessResult getProcessStatus(String processId) throws Exception {
         ReportReadingProcessResult result = serviceConsumer.getProcessStatus(preferences, processId);
         return result;
+    }
+    
+    /**
+     * Permite imprimir el resultado del envio de lecturas por cada una de las fronteras
+     * @param result 
+     */
+    public void printProcessResult(ReportReadingProcessResult result){
+        JAXBElement<ArrayOfBorderResult> arrayOfBorderResult = result.getResults();
+        String resultado = "";
+        System.out.println("1");
+        if(arrayOfBorderResult != null){
+            System.out.println("2");
+            for (BorderResult frontera : arrayOfBorderResult.getValue().getBorderResult()) {
+                System.out.println("3");
+                resultado = resultado.format("IdFrotenra: %s Resultado: %s ErrorMessage: %s", frontera.getCode().getValue(), frontera.getResultFlag(), frontera.getErrorMessage().getValue()); 
+                System.out.println(resultado);
+            };
+
+        }
     }
 
 }
