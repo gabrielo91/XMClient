@@ -5,6 +5,7 @@
  */
 package xmclient.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,16 +26,23 @@ import xmclient.soapentities.ReportReadingProcessResult;
 public class Main {
     public static void main(String[] args) {
     
+        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
+        
+        
         try {
             
             //Testing -----------------------------------------------
             List<Double> arrayLecturas = new ArrayList<>();
             Double lecturasEjemplo = 0.0;
             for (int i = 0; i < 24; i++) {
-                lecturasEjemplo++;
+                //lecturasEjemplo++;
                 arrayLecturas.add(lecturasEjemplo);
             }            
-            DTOLecturas lecturas = new DTOLecturas(arrayLecturas, new Date(), "12345", Boolean.FALSE);
+            //DTOLecturas lecturas = new DTOLecturas(arrayLecturas, new Date(), "Frt22508", Boolean.FALSE);
+            DTOLecturas lecturas = new DTOLecturas(arrayLecturas, new SimpleDateFormat("yyyy-MM-dd").parse("2017-12-28"), "Frt22508", Boolean.FALSE);
             //Testing -----------------------------------------------
                         
             //Replace this list with the array of data to send  ***********
@@ -52,6 +60,9 @@ public class Main {
             System.out.println("Starting..");
             String processId;
 
+            
+            
+            
             //Report readings
             ProcessRequestResult respuesta = xMClientController.reportReadings(listaLecturas);
 
