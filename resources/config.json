@@ -3,11 +3,10 @@
     "version": "1.0.0",
 
     "credentials":{
-        "username":"8150008969",
-        "password":"XvD82ojuMq"
+        "username":"username",
+        "password":"password"
     },
     "service":{
-        "service-endpoint":"https://ReadingReportService.xm.com.co/ReadingReportService.svc?wsdl",
-        "service-endpoint_lab":"https://readingreportserviceprb.xm.com.co/ReadingReportService.svc?wsdl"
+        "service-endpoint":"https://readingreportservice.xm.com.co/ReadingReportService.svc?wsdl"
     }
 }
