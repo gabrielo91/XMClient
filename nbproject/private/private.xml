@@ -6,11 +6,8 @@
             <file>file:/D:/DesarrolloXMCliente/Codigo/XMClient/src/xmclient/controller/Main.java</file>
             <file>file:/D:/DesarrolloXMCliente/Codigo/XMClient/resources/config.json</file>
             <file>file:/D:/DesarrolloXMCliente/Codigo/XMClient/src/xmclient/soapclient/IServiceConsumer.java</file>
-            <file>jar:file:/D:/DesarrolloXMCliente/Codigo/XMClient/libraries/gson-2.6.2-javadoc.jar!/com/google/gson/annotations/Since.html</file>
             <file>file:/D:/DesarrolloXMCliente/Codigo/XMClient/src/xmclient/controller/XMClientController.java</file>
-            <file>file:/D:/DesarrolloXMCliente/Codigo/XMClient/src/xmclient/soapclient/LecturasTransformer.java</file>
-            <file>file:/D:/DesarrolloXMCliente/Codigo/XMClient/src/xmclient/soapclient/ServiceConsumer.java</file>
-            <file>file:/D:/DesarrolloXMCliente/Codigo/XMClient/src/xmclient/preferencesmanager/PreferencesManager.java</file>
+            <file>file:/D:/DesarrolloXMCliente/Codigo/XMClient/build/generated-sources/jax-ws/xmclient/soapentities/ReadingReportService.java</file>
         </group>
     </open-files>
 </project-private>
