@@ -42,11 +42,11 @@ public class Main {
             ArrayList<DTOLecturas>  listaLecturas = new ArrayList();
             listaLecturas.add(lecturas);
             //**************************************************************
-            
+            String configFilePath = "resources/config.json";
             //This is the way how service must be called ------------------>
             //Objects to inject
             IServiceConsumer serviceConsumer = new ServiceConsumer();
-            IPreferencesManager preferences = new PreferencesManager();
+            IPreferencesManager preferences = new PreferencesManager(configFilePath);
             
             XMClientController xMClientController = new XMClientController(serviceConsumer, preferences);    
                       

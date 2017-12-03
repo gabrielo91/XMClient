@@ -16,21 +16,22 @@ import org.json.simple.parser.ParseException;
  * @author Gabriel Ortega
  */
 public class PreferencesManager implements IPreferencesManager{
-    
-    public final static String PATH_CONFIGURATION_FILE = "resources/config.json";
+        
     public final static String USERNAME = "username";
     public final static String PASSWORD = "password";
     public final static String CREDENTIALS = "credentials";
     public final static String SERVICE = "service";
     public final static String SERVICE_ENDPOINT = "service-endpoint";
 
+    private String configFilePath;
     private String username;
     private String password;
     private String serviceEndPoint;
    
-    public PreferencesManager() throws FileNotFoundException, IOException, ParseException {
+    public PreferencesManager(String configFilePath) throws FileNotFoundException, IOException, ParseException {
+        this.configFilePath = configFilePath;
         JSONParser parser = new JSONParser();
-        Object object = parser.parse(new FileReader(PATH_CONFIGURATION_FILE));
+        Object object = parser.parse(new FileReader(configFilePath));
         JSONObject configData = (JSONObject) object;
         JSONObject credentials = (JSONObject) configData.get(CREDENTIALS);
         JSONObject serviceInfo = (JSONObject) configData.get(SERVICE);
@@ -52,6 +53,16 @@ public class PreferencesManager implements IPreferencesManager{
     @Override
     public String getServiceEndPoint() throws Exception {
         return this.serviceEndPoint;
+    }
+
+    @Override
+    public void setConfigFilePath(String configFilePath) throws Exception {
+        this.configFilePath = configFilePath;
+    }
+
+    @Override
+    public String getConfigFilePath() throws Exception {
+        return configFilePath;
     }
     
 }
