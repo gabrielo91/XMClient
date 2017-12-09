@@ -57,18 +57,21 @@ public class XMClientController {
      * @param result 
      */
     public void printProcessResult(ReportReadingProcessResult result){
-        JAXBElement<ArrayOfBorderResult> arrayOfBorderResult = result.getResults();
-        String resultado = "";
-        System.out.println("1");
-        if(arrayOfBorderResult != null){
-            System.out.println("2");
-            for (BorderResult frontera : arrayOfBorderResult.getValue().getBorderResult()) {
-                System.out.println("3");
-                resultado = resultado.format("IdFrotenra: %s Resultado: %s ErrorMessage: %s", frontera.getCode().getValue(), frontera.getResultFlag(), frontera.getErrorMessage().getValue()); 
-                System.out.println(resultado);
-            };
+        if(result != null){
+            JAXBElement<ArrayOfBorderResult> arrayOfBorderResult = result.getResults();
+            String resultado = "";
+            System.out.println("1");
+            if(arrayOfBorderResult != null){
+                System.out.println("2");
+                for (BorderResult frontera : arrayOfBorderResult.getValue().getBorderResult()) {
+                    System.out.println("3");
+                    resultado = resultado.format("IdFrotenra: %s Resultado: %s ErrorMessage: %s", frontera.getCode().getValue(), frontera.getResultFlag(), frontera.getErrorMessage().getValue()); 
+                    System.out.println(resultado);
+                };
 
+            }
         }
+        
     }
 
 }
